@@ -16,7 +16,6 @@ const getFavouriteItemsFromLocalStorage = () => {
 }
 
 const AppProvider = ({ children }) => {
-  // const [heart, setHeart] = useState(true);
   const [favourites, setFavourites] = useState(getFavouriteItemsFromLocalStorage());
   const [showModal, setShowModal] = useState(false);
   const [selectedMeal, setselectedMeal] = useState(null);

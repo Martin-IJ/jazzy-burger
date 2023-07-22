@@ -69,16 +69,6 @@ function App() {
     setProducts(data)
   },[data])
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 3000);
-
-  //   return () => {
-  //     clearTimeout(timer);
-  //   };
-  // }, []);
-
   return (
     <div className="App ">
       {isLoading && <LoadingPage />}
