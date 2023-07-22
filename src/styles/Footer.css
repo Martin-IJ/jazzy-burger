@@ -60,6 +60,7 @@ footer {
   justify-content: space-between;
   width: 150px;
   margin-top: 3%;
+  cursor: pointer;
 }
 
 

@@ -1,18 +1,24 @@
 .heart-bck {
-  top: 2px;
-  right: 2px;
-  width: 52px;
-  height: 52px;
+  top: 7px;
+  right: 7px;
+  width: 45px;
+  height: 45px;
   display: flex;
   border-radius: 50%;
   position: absolute;
   background: rgba(234, 234, 234, .6);
+  z-index: 100;
 }
 
 .heart {
-  width: 38px;
-  height: 38px;
+  width: 30px;
+  height: 30px;
   margin: auto;
+  cursor: pointer;
+  transition: 0.3s ease-in-out all;
+}
+.heart-bck:hover {
+  color: #842029;
 }
 
 .red{

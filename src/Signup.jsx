@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import mobileImg from "./assets/header/image 4.png";
-import "./styles/signup.css"
+import "./styles/signup.css";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const initialState = {
     firstName: "",
     lastName: "",
@@ -68,7 +68,7 @@ const Signup = () => {
 
   const { firstName, lastName, email, phoneNumber, password, confirmPassWord } =
     user;
-  console.log(user);
+  // console.log(user);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -107,7 +107,13 @@ const Signup = () => {
   return (
     <div className="form-container col-12  col-md-8 offset-md-2 col-lg-4 offset-lg-4">
       <div className="first text-center mt-1">
-        <img className="mb-4 signup-logo" src={mobileImg} alt="" height={120} onClick={()=>navigate("/")}/>
+        <img
+          className="mb-4 signup-logo"
+          src={mobileImg}
+          alt=""
+          height={120}
+          onClick={() => navigate("/")}
+        />
         <h2 className="create mb-5">Create Your account</h2>
       </div>
       <div className="cont col-md-10 col-10 offset-1 offset-md-1">
@@ -169,16 +175,16 @@ const Signup = () => {
               Phone Number
             </label>
             <div className="toolkit-con">
-            <span className="toolkit">+234</span>
-            <input
-              className={`form-control ${errors.phoneNumber ? "error" : ""}`}
-              type="tel"
-              id="phoneNumber"
-              name="phoneNumber"
-              placeholder="818 000 0000"
-              value={phoneNumber}
-              onChange={handleChange}
-            />
+              <span className="toolkit">+234</span>
+              <input
+                className={`form-control ${errors.phoneNumber ? "error" : ""}`}
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder="818 000 0000"
+                value={phoneNumber}
+                onChange={handleChange}
+              />
             </div>
             {errors.phoneNumber && (
               <label className="label1 text-danger">{errors.phoneNumber}</label>
@@ -252,8 +258,10 @@ const Signup = () => {
           </div>
 
           <div className="mb-3">
-            <input type="checkbox" id="sign"/>
-            <label htmlFor="sign" className="sign">Keep me signed in</label>
+            <input type="checkbox" id="sign" />
+            <label htmlFor="sign" className="sign">
+              Keep me signed in
+            </label>
           </div>
 
           <div className="btn1 text-center  mt-4">
@@ -264,10 +272,13 @@ const Signup = () => {
 
       <div className="foot p-2 text-center mb-4">
         <p>
-          Have an account? <a href="#" onClick={()=>navigate("/login")}>Sign in</a>
+          Have an account?{" "}
+          <a href="#" onClick={() => navigate("/login")}>
+            Sign in
+          </a>
         </p>
         By creating your Quickmunch account, you agree to the <br />
-        <a href="#">Terms of use</a> and <a href="#" >Privacy Policy.</a>
+        <a href="#">Terms of use</a> and <a href="#">Privacy Policy.</a>
       </div>
     </div>
   );

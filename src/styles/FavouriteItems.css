@@ -1,0 +1,19 @@
+.favorites {
+    background: rgb(213, 87, 87);
+    color: white;
+    padding: 1rem 0;
+  }
+  .favorites-content {
+    width: 90vw;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .favorites-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .favourite-name{
+    text-shadow: 1px 3px 2px #1f1f1f;
+  }

@@ -10,7 +10,7 @@ const Cart = ({ product, toCartButton }) => {
           <div className="cart-icon">
             <img src={icon} alt="icon"></img>
           </div>
-          <div className="cart-txt">Add to Cart</div>
+          <div className="cart-txt fs-6 fw-normal">Add to Cart</div>
         </>
       )}
       {product.cart && (
@@ -18,7 +18,7 @@ const Cart = ({ product, toCartButton }) => {
           <div className="cart-icon">
             <FaCheck />
           </div>
-          <div className="cart-txt">Update Cart</div>
+          <div className="cart-txt fs-6 fw-normal">Update Cart</div>
         </>
       )}
     </button>

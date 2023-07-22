@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import mobileImg from "./assets/header/image 4.png";
-import "./styles/signup.css"
+import "./styles/signup.css";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const initialState = {
     email: "",
-    password: ""
+    password: "",
   };
   const [user, setUser] = useState(initialState);
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -30,10 +30,9 @@ const Login = () => {
         }));
       }
     }
-}
+  };
 
-  const { email, password} =
-    user;
+  const { email, password } = user;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,22 +44,28 @@ const Login = () => {
     }
 
     if (password.length < 8) {
-        newErrors.password = "Enter Your Password";
-      }
+      newErrors.password = "Enter Your Password";
+    }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
       // Perform your form submission logic here
-      console.log(user);
+      // console.log(user);
     }
   };
 
   return (
-    <div className="form-container col-12  col-md-8 offset-md-2 col-lg-4 offset-lg-4">
+    <div className="form-container col-12 pt-4 col-md-8 offset-md-2 col-lg-4 offset-lg-4">
       <div className="first text-center mt-1">
-        <img className="mb-4 signup-logo" src={mobileImg} alt="" height={120} onClick={()=>navigate("/")}/>
-        <h2 className="create mb-5">SIGN IN TO YOUR ACCOUNT</h2>
+        <img
+          className="mb-4 signup-logo"
+          src={mobileImg}
+          alt=""
+          height={120}
+          onClick={() => navigate("/")}
+        />
+        <h2 className="create mb-5">Sign in to your account</h2>
       </div>
       <div className="cont col-md-10 col-10 offset-1 offset-md-1">
         <form onSubmit={handleSubmit}>
@@ -83,7 +88,7 @@ const Login = () => {
           </div>
           <div className="mb-3 login">
             <label className="label d-block" htmlFor="">
-              Password 
+              Password
             </label>
             <input
               className={`form-control ${errors.password ? "error" : ""}`}
@@ -113,12 +118,18 @@ const Login = () => {
             )}
           </div>
 
-          <div className="mb-3 d-flex justify-content-between">
-            <div>
-            <input type="checkbox" id="sign"/>
-            <label htmlFor="sign" className="sign">Keep me signed in</label>
+          <div className="mb-3 d-flex justify-content-between align-items-center">
+            <div className="align-items-center">
+              <input type="checkbox" id="sign" />
+              <label htmlFor="sign" className="sign fs-6 fw-lighter">
+                Keep me signed in
+              </label>
             </div>
-            <label><a href="#" className="reset-password">Reset Password</a></label>
+            <label>
+              <a href="#" className="reset-password fs-6 fw-lighter">
+                Reset Password
+              </a>
+            </label>
           </div>
 
           <div className="btn1 text-center  mt-4">
@@ -128,8 +139,11 @@ const Login = () => {
       </div>
 
       <div className="foot p-2 text-center ">
-        <p>
-          Dont have an account? <a href="#" onClick={()=>navigate("/signup")}>Create one</a>
+        <p className="fs-6 fw-lighter">
+          Dont have an account?{" "}
+          <a href="#" onClick={() => navigate("/signup")} className="ms-5">
+            Create one
+          </a>
         </p>
       </div>
     </div>

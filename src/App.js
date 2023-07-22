@@ -8,11 +8,26 @@ import Signup from "./Signup";
 import Login from "./Login";
 import CheckOut from "./CheckOut";
 import Update from "./Update";
+import useAxiosFetch from "./hooks/useAxiosFetch";
 
 function App() {
-  const [products, setProducts] = useState(data);
+  const {data,isLoading,fetchError} = useAxiosFetch(
+    "https://eggys.onrender.com/jazzyburger/all", 
+  // "http://127.0.0.1:9000/api/product/",
+  )
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setProducts(
+      data.map((product) => {
+        product.id = product._id;
+        product.count = 1;
+        delete product._id;
+        return product;
+      })
+    );
+  }, [data]);
+
   const handleIncrease = (id) => {
     const newProducts = products.map((product) => {
       if (product.id === id) {
@@ -50,15 +65,19 @@ function App() {
     toCart();
   }, [products]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
+  useEffect(()=>{
+    setProducts(data)
+  },[data])
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 3000);
+
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, []);
 
   return (
     <div className="App ">
@@ -95,19 +114,18 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route
                 path="/checkout"
-                element={<CheckOut 
-                  cart={cart} 
-                  toCartButton={toCartButton}
-                  handleIncrease ={handleIncrease} 
-                  handleReduce ={handleReduce}
-                  />}
+                element={
+                  <CheckOut
+                    cart={cart}
+                    toCartButton={toCartButton}
+                    handleIncrease={handleIncrease}
+                    handleReduce={handleReduce}
+                  />
+                }
               />
               <Route
                 path="/update"
-                element={<Update
-                  cart={cart} 
-                  toCartButton={toCartButton}
-                  />}
+                element={<Update cart={cart} toCartButton={toCartButton} />}
               />
             </Routes>
           </div>

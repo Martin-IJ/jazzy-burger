@@ -8,12 +8,12 @@ import { FaFacebookF } from "react-icons/fa";
 import { SiInstagram } from "react-icons/si";
 import { ImTwitter } from "react-icons/im";
 import { AiOutlineYoutube } from "react-icons/ai";
-import "../styles/Footer.css"
+import "../styles/Footer.css";
 
 const Footer2 = () => {
   return (
-    <div className="main-cont">
-      <footer>
+    <div className="main-cont footer-container">
+      <footer className="footer-cont">
         <div className="head col-md-12">
           <div className="first-container">
             <div className="padlock">
@@ -42,33 +42,37 @@ const Footer2 = () => {
           </div>
 
           <div className="head2">
-            <div className="download">
+            <div
+              className="download"
+              onClick={() =>
+                window.open(
+                  "https://apps.apple.com/ng/app/jazzys-burger/id1632442211"
+                )
+              }
+            >
               <div className="download-img">
                 <img src={vect4} alt="" className="img-fluid img1" />
               </div>
               <div className="dwnld-text">
-                <a
-                  href="http://https://apps.apple.com/ng/app/jazzys-burger/id1632442211"
-                  target="_blank"
-                >
-                  <h1>Download on the</h1>
-                  <h1>APP STORE</h1>
-                </a>
+                <h1>Download on the</h1>
+                <h1>APP STORE</h1>
               </div>
             </div>
 
-            <div className="download">
+            <div
+              className="download"
+              onClick={() =>
+                window.open(
+                  "https://play.google.com/store/apps/details?id=co.awadigital.jazzyburger&pli=1"
+                )
+              }
+            >
               <div className="download-img">
                 <img src={vect5} alt="" className="img-fluid img1" />
               </div>
               <div className="dwnld-text">
-                <a
-                  href="http://https://play.google.com/store/apps/details?id=co.awadigital.jazzyburger"
-                  target="_blank"
-                >
-                  <h1>Get it on </h1>
-                  <h1>GOOGLE PLAY</h1>
-                </a>
+                <h1>Get it on </h1>
+                <h1>GOOGLE PLAY</h1>
               </div>
             </div>
           </div>
@@ -77,11 +81,13 @@ const Footer2 = () => {
         <div className="general">
           <div className="help-link">
             <h1 className="">Need help</h1>
-            <div className="link">
+            <div className="link" style={{ fontSize: ".8rem" }}>
               <a href="tel:+234 466 6655">+234 466 6655</a>{" "}
-              <span className="link">or</span>
+              <span className="link" style={{ fontSize: ".8rem" }}>
+                or
+              </span>
             </div>
-            <div className="link">
+            <div className="link" style={{ fontSize: ".8rem" }}>
               <a href="/">help@jazzyburger.com</a>
             </div>
           </div>
@@ -124,7 +130,19 @@ const Footer2 = () => {
           </div>
         </div>
       </footer>
-      <small style={{background:"gray",color:"white", fontFamily:"Open Sans"}}> &copy; Tech Studio Python Class</small>
+      <small
+        style={{
+          background: "white",
+          textAlign: "center",
+          width: "100%",
+          color: "black",
+          padding: ".7rem",
+          fontFamily: "Open Sans",
+        }}
+      >
+        {" "}
+        &copy; 2023 &#x2022; Developed by Tech Studio Python Class
+      </small>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Update = ({ cart, toCartButton }) => {
   const [updateData, setUpdateData] = useState(iniatialState);
   const handleChange = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    // console.log(e.target);
     const { name, value } = e.target;
     setUpdateData({ [name]: value });
   };
