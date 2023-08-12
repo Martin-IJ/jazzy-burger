@@ -3,20 +3,21 @@ import React, { useContext, useState } from "react";
 const AppContext = React.createContext();
 
 const getFavouriteItemsFromLocalStorage = () => {
-    let favouriteItem = localStorage.getItem('favouriteItem');
+  let favouriteItem = localStorage.getItem("favouriteItem");
 
-    if (favouriteItem) {
-        favouriteItem = JSON.parse(localStorage.getItem('favouriteItem'))
-    } 
-    else {
-        favouriteItem = []
-    }
+  if (favouriteItem) {
+    favouriteItem = JSON.parse(localStorage.getItem("favouriteItem"));
+  } else {
+    favouriteItem = [];
+  }
 
-    return favouriteItem
-}
+  return favouriteItem;
+};
 
 const AppProvider = ({ children }) => {
-  const [favourites, setFavourites] = useState(getFavouriteItemsFromLocalStorage());
+  const [favourites, setFavourites] = useState(
+    getFavouriteItemsFromLocalStorage()
+  );
   const [showModal, setShowModal] = useState(false);
   const [selectedMeal, setselectedMeal] = useState(null);
   const [meals, setMeals] = useState([]);
@@ -37,19 +38,23 @@ const AppProvider = ({ children }) => {
   };
 
   const addToFavourites = (id, image) => {
-    const alreadyFavourite = favourites.find((meal) => meal.id === id);
+    const existingFavourite = favourites.find((meal) => meal.id === id);
 
-    if (alreadyFavourite) return;
+    if (existingFavourite) {
+      const updatedFavourites = favourites.filter((meal) => meal.id !== id);
+      setFavourites(updatedFavourites);
+      localStorage.setItem("favouriteItem", JSON.stringify(updatedFavourites));
+    } else {
+      const updatedFavourites = [...favourites, { id, image }];
+      setFavourites(updatedFavourites);
+      localStorage.setItem("favouriteItem", JSON.stringify(updatedFavourites));
+    }
+  };
 
-    const updateFavourites = [...favourites, { id, image }];
-    setFavourites(updateFavourites);
-    localStorage.setItem('favouriteItem', JSON.stringify(updateFavourites));
-};
-
-const removeFromFavourites = (id) => {
+  const removeFromFavourites = (id) => {
     const updateFavourites = favourites.filter((meal) => meal.id !== id);
     setFavourites(updateFavourites);
-    localStorage.setItem('favouriteItem', JSON.stringify(updateFavourites));
+    localStorage.setItem("favouriteItem", JSON.stringify(updateFavourites));
   };
   return (
     <AppContext.Provider

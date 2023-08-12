@@ -265,7 +265,7 @@ const Signup = () => {
           </div>
 
           <div className="btn1 text-center  mt-4">
-            <button className="btn-create">Create Your Account</button>
+            <button className="btn-create" type="submit">Create Your Account</button>
           </div>
         </form>
       </div>

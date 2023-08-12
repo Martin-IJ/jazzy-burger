@@ -39,7 +39,7 @@ const CheckOut = ({ cart, toCartButton, handleIncrease, handleReduce }) => {
           toCartButton={toCartButton}
         />
       </div>
-      <Footer2 />
+      {/* <Footer2 /> */}
     </div>
   );
 };

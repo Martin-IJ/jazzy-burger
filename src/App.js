@@ -9,12 +9,16 @@ import Login from "./Login";
 import CheckOut from "./CheckOut";
 import Update from "./Update";
 import useAxiosFetch from "./hooks/useAxiosFetch";
+import FavouriteItems from "./component/FavouriteItems";
+import { useGlobalContext } from "./Context";
+import Footer2 from "./component/Footer2";
 
 function App() {
-  const {data,isLoading,fetchError} = useAxiosFetch(
-    "https://eggys.onrender.com/jazzyburger/all", 
-  // "http://127.0.0.1:9000/api/product/",
-  )
+  const { favourites } = useGlobalContext();
+  const { data, isLoading, fetchError } = useAxiosFetch(
+    "https://eggys.onrender.com/jazzyburger/all"
+    // "http://127.0.0.1:9000/api/product/",
+  );
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   useEffect(() => {
@@ -65,9 +69,9 @@ function App() {
     toCart();
   }, [products]);
 
-  useEffect(()=>{
-    setProducts(data)
-  },[data])
+  useEffect(() => {
+    setProducts(data);
+  }, [data]);
 
   return (
     <div className="App ">
@@ -119,6 +123,8 @@ function App() {
               />
             </Routes>
           </div>
+          {favourites.length > 0 && <FavouriteItems />}
+          <Footer2 />
         </div>
       )}
     </div>

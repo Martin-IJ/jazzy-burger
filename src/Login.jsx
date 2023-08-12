@@ -44,7 +44,7 @@ const Login = () => {
     }
 
     if (password.length < 8) {
-      newErrors.password = "Enter Your Password";
+      newErrors.password = "Password should be at least 8 characters";
     }
 
     if (Object.keys(newErrors).length > 0) {

@@ -4,7 +4,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { useGlobalContext } from "../Context";
 
 const Favourite = ({ product }) => {
-  const { addToFavourites, heart } = useGlobalContext();
+  const { addToFavourites } = useGlobalContext();
 
   return (
     <div>
@@ -12,11 +12,7 @@ const Favourite = ({ product }) => {
         className="heart-bck"
         onClick={() => addToFavourites(product.id, product.image)}
       >
-        {heart === true ? (
-          <FaHeart className="heart red" />
-          ) : (
-          <FaRegHeart className="heart" />
-        )}
+        <FaRegHeart className="heart" />
       </div>
     </div>
   );

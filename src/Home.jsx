@@ -51,8 +51,8 @@ const Home = ({
           </NavLink>
         </div>
       </main>
-      {favourites.length > 0 && <FavouriteItems />}
-      <Footer2 />
+      {/* {favourites.length > 0 && <FavouriteItems />} */}
+      {/* <Footer2 /> */}
     </div>
   );
 };

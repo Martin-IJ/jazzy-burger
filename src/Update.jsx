@@ -127,7 +127,7 @@ const Update = ({ cart, toCartButton }) => {
           </div>
         </div>
       </div>
-      <Footer2 />
+      {/* <Footer2 /> */}
     </div>
   );
 };

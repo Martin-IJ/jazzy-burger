@@ -21,7 +21,7 @@ const ViewMore = ({ products, toCartButton, cart }) => {
           </div>
         </div>
       </div>
-      <Footer2 />
+      {/* <Footer2 /> */}
     </div>
   );
 };
